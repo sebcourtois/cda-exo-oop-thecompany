@@ -11,7 +11,7 @@ function htmlToElement(html: string) {
 function renderRowElem(rowData: Array<any>) {
     const html = `
     <tr>
-    ${rowData.map(value => `<td>${value}</td>`)}
+    ${rowData.map(value => `<td>${value}</td>`).join("\n")}
     </tr>
     `.trim();
     return htmlToElement(html);
@@ -23,17 +23,17 @@ const total_cost = EMPLOYEES
 
 const appDiv = document.querySelector("#app")!;
 appDiv.innerHTML = `
-<p>La Franchouillard Company compte ${EMPLOYEES.length} employés</p>
+<p>La Franche Company</p>
 <table>
     <tbody id="employees_table_body1">
     </tbody>
 </table>
-<p>La Franchouillard Company compte toujours ${EMPLOYEES.length} employés</p>
+<p>La Franche Company compte ${EMPLOYEES.length} employés</p>
 <table>
     <tbody id="employees_table_body2">
     </tbody>
 </table>
-<p>Tout ce beau nous coute ${total_cost} € par an</p>
+<p>Tout ce beau nous coute ${total_cost} € par an (primes comprises)</p>
 `.trim();
 
 
@@ -43,10 +43,11 @@ function renderTable1(employees: Employee[]) {
     for (let employee of employees) {
         tableBody.appendChild(renderRowElem([
             employee.agency.name,
+            employee.agency.mealPolicy.name,
+            employee.department,
             employee.lastName,
             employee.firstName,
             employee.jobTitle,
-            employee.department,
             employee.dateHired.toISOString().split("T", 2)[0],
             employee.seniority(),
             employee.annualGrossSalary,
@@ -60,6 +61,7 @@ function renderTable2(employees: Employee[]) {
     for (let employee of employees) {
         tableBody.appendChild(renderRowElem([
             employee.agency.name,
+            employee.agency.mealPolicy.name,
             employee.department,
             employee.lastName,
             employee.firstName,

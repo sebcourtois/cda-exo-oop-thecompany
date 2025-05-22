@@ -1,70 +1,76 @@
 import {Employee} from "./employee.ts";
-import {Agency} from "./agency";
-
-function randomIndex(maxIndex: number) {
-    return Math.floor(Math.random() * maxIndex)
-}
+import {Agency, MealPolicy} from "./agency";
 
 export const AGENCIES: Agency[] = [
     new Agency(
-        "Franchouillard Company - Paris Opéra",
+        "Franche Company - Paris Opéra",
         "10 Rue de la Paix",
         75002, // Paris
         "Paris",
+        MealPolicy.Canteen,
     ),
     new Agency(
-        "Franchouillard Company - Lyon Bellecour",
+        "Franche Company - Lyon Bellecour",
         "2 Place Bellecour",
         69002, // Lyon
         "Lyon",
+        MealPolicy.Vouchers,
     ),
     new Agency(
-        "Franchouillard Company - Marseille Vieux-Port",
+        "Franche Company - Marseille Vieux-Port",
         "1 Quai du Port",
         13002, // Marseille
         "Marseille",
+        MealPolicy.Vouchers,
     ),
     new Agency(
-        "Franchouillard Company - Bordeaux Saint-Pierre",
+        "Franche Company - Bordeaux Saint-Pierre",
         "5 Rue du Parlement Sainte-Catherine",
         33000, // Bordeaux
         "Bordeaux",
+        MealPolicy.Vouchers,
     ),
     new Agency(
-        "Franchouillard Company - Nice Promenade",
+        "Franche Company - Nice Promenade",
         "123 Promenade des Anglais",
         6000, // Nice
         "Nice",
+        MealPolicy.Canteen,
     ),
     new Agency(
-        "Franchouillard Company - Toulouse Capitole",
+        "Franche Company - Toulouse Capitole",
         "8 Place du Capitole",
         31000, // Toulouse
         "Toulouse",
+        MealPolicy.Canteen,
     ),
     new Agency(
-        "Franchouillard Company - Strasbourg Cathédrale",
+        "Franche Company - Strasbourg Cathédrale",
         "3 Rue du Dôme",
         67000, // Strasbourg
         "Strasbourg",
+        MealPolicy.Canteen,
     ),
     new Agency(
-        "Franchouillard Company - Lille Grand Place",
+        "Franche Company - Lille Grand Place",
         "17 Place du Général de Gaulle",
         59000, // Lille
         "Lille",
+        MealPolicy.Vouchers,
     ),
     new Agency(
-        "Franchouillard Company - Nantes Bouffay",
+        "Franche Company - Nantes Bouffay",
         "4 Rue de la Fosse",
         44000, // Nantes
         "Nantes",
+        MealPolicy.Vouchers,
     ),
     new Agency(
-        "Franchouillard Company - Rennes République",
+        "Franche Company - Rennes République",
         "1 Place de la République",
         35000, // Rennes
         "Rennes",
+        MealPolicy.Canteen,
     ),
 ];
 
@@ -76,7 +82,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Software Engineer",
         45.5,
         "Engineering",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[0],
     ),
     new Employee(
         "Bob",
@@ -85,7 +91,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Product Manager",
         60.0,
         "Product Development",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[1],
     ),
     new Employee(
         "Claire",
@@ -94,7 +100,7 @@ export const EMPLOYEES: Array<Employee> = [
         "UX Designer",
         42.0,
         "Design",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[2],
     ),
     new Employee(
         "David",
@@ -103,7 +109,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Senior Software Engineer",
         58.0,
         "Engineering",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[3],
     ),
     new Employee(
         "Eve",
@@ -112,7 +118,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Human Resources Generalist",
         38.0,
         "Human Resources",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[4],
     ),
     new Employee(
         "Frank",
@@ -121,7 +127,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Sales Manager",
         70.0,
         "Sales",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[5],
     ),
     new Employee(
         "Grace",
@@ -130,7 +136,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Marketing Specialist",
         40.0,
         "Marketing",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[6],
     ),
     new Employee(
         "Henri",
@@ -139,7 +145,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Financial Analyst",
         50.0,
         "Finance",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[7],
     ),
     new Employee(
         "Isabelle",
@@ -148,7 +154,7 @@ export const EMPLOYEES: Array<Employee> = [
         "Data Scientist",
         55.0,
         "Data Science",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[8],
     ),
     new Employee(
         "Julien",
@@ -157,6 +163,6 @@ export const EMPLOYEES: Array<Employee> = [
         "IT Support Specialist",
         35.0,
         "IT",
-        AGENCIES[randomIndex(AGENCIES.length)],
+        AGENCIES[9],
     ),
 ];
