@@ -37,33 +37,13 @@ appDiv.innerHTML = `
 `.trim();
 
 
-function renderTable1(employees: Employee[]) {
-    const tableBody = document.querySelector("#employees_table_body1")!;
-
+function renderTable(employees: Employee[], targetTableBody: HTMLElement) {
     for (let employee of employees) {
-        tableBody.appendChild(renderRowElem([
+        targetTableBody.appendChild(renderRowElem([
             employee.agency.name,
             employee.agency.mealPolicy.name,
             employee.department,
-            employee.lastName,
-            employee.firstName,
-            employee.jobTitle,
-            employee.dateHired.toISOString().split("T", 2)[0],
-            employee.seniority(),
-            employee.annualGrossSalary,
-            employee.computeAnnualBonus().toFixed(2),
-        ]));
-    }
-}
-
-function renderTable2(employees: Employee[]) {
-    const tableBody = document.querySelector("#employees_table_body2")!;
-    for (let employee of employees) {
-        tableBody.appendChild(renderRowElem([
-            employee.agency.name,
-            employee.agency.mealPolicy.name,
-            employee.department,
-            employee.lastName,
+            employee.lastName.toUpperCase(),
             employee.firstName,
             employee.jobTitle,
             employee.dateHired.toISOString().split("T", 2)[0],
@@ -79,7 +59,10 @@ sortedEmployees.sort((e1, e2) => {
     if (e1.fullName() === e2.fullName()) return 0;
     return (e1.fullName() > e2.fullName()) ? 1 : -1;
 });
-renderTable1(sortedEmployees);
+renderTable(
+    sortedEmployees,
+    document.querySelector("#employees_table_body1")!
+);
 
 sortedEmployees.sort((e1, e2) => {
     const s1 = e1.department + e1.fullName();
@@ -87,9 +70,8 @@ sortedEmployees.sort((e1, e2) => {
     if (s1 === s2) return 0;
     return (s1 > s2) ? 1 : -1;
 });
-renderTable2(sortedEmployees);
-
-
-
-
+renderTable(
+    sortedEmployees,
+    document.querySelector("#employees_table_body2")!
+);
 
