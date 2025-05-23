@@ -39,4 +39,9 @@ export class Employee {
     fullName(): string {
         return `${this.lastName} ${this.firstName}`;
     }
+
+    canGetHolidayVouchers() {
+        return this.seniority() >= 1
+    }
+
 }

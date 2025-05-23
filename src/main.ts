@@ -50,6 +50,7 @@ function renderTable(employees: Employee[], targetTableBody: HTMLElement) {
             employee.seniority(),
             employee.annualGrossSalary,
             employee.computeAnnualBonus().toFixed(2),
+            employee.canGetHolidayVouchers() ? "Yes" : "No",
         ]));
     }
 }
@@ -61,7 +62,7 @@ sortedEmployees.sort((e1, e2) => {
 });
 renderTable(
     sortedEmployees,
-    document.querySelector("#employees_table_body1")!
+    document.querySelector("#employees_table_body1")!,
 );
 
 sortedEmployees.sort((e1, e2) => {
@@ -72,6 +73,6 @@ sortedEmployees.sort((e1, e2) => {
 });
 renderTable(
     sortedEmployees,
-    document.querySelector("#employees_table_body2")!
+    document.querySelector("#employees_table_body2")!,
 );
 
