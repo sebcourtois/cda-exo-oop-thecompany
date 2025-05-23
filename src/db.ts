@@ -83,6 +83,7 @@ export const EMPLOYEES: Array<Employee> = [
         45.5,
         "Engineering",
         AGENCIES[0],
+        [2018, 2020],
     ),
     new Employee(
         "Bob",
@@ -92,6 +93,7 @@ export const EMPLOYEES: Array<Employee> = [
         60.0,
         "Product Development",
         AGENCIES[1],
+        [],
     ),
     new Employee(
         "Claire",
@@ -101,6 +103,7 @@ export const EMPLOYEES: Array<Employee> = [
         42.0,
         "Design",
         AGENCIES[2],
+        [2022],
     ),
     new Employee(
         "David",
@@ -110,6 +113,7 @@ export const EMPLOYEES: Array<Employee> = [
         58.0,
         "Engineering",
         AGENCIES[3],
+        [2015, 2017],
     ),
     new Employee(
         "Eve",
@@ -119,6 +123,7 @@ export const EMPLOYEES: Array<Employee> = [
         38.0,
         "Human Resources",
         AGENCIES[4],
+        [],
     ),
     new Employee(
         "Frank",
@@ -128,6 +133,7 @@ export const EMPLOYEES: Array<Employee> = [
         70.0,
         "Sales",
         AGENCIES[5],
+        [2010, 2013, 2016],
     ),
     new Employee(
         "Grace",
@@ -137,6 +143,7 @@ export const EMPLOYEES: Array<Employee> = [
         40.0,
         "Marketing",
         AGENCIES[6],
+        [2021],
     ),
     new Employee(
         "Henri",
@@ -146,6 +153,7 @@ export const EMPLOYEES: Array<Employee> = [
         50.0,
         "Finance",
         AGENCIES[7],
+        [],
     ),
     new Employee(
         "Isabelle",
@@ -155,6 +163,7 @@ export const EMPLOYEES: Array<Employee> = [
         55.0,
         "Data Science",
         AGENCIES[8],
+        [2019],
     ),
     new Employee(
         "Julien",
@@ -164,5 +173,6 @@ export const EMPLOYEES: Array<Employee> = [
         35.0,
         "IT",
         AGENCIES[9],
+        [2014, 2018],
     ),
 ];

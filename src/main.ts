@@ -1,6 +1,6 @@
 import "./style.css";
 import {EMPLOYEES} from "./db.ts";
-import type {Employee} from "./employee.ts";
+import type {Employee, HolidayVouchers} from "./employee.ts";
 
 function htmlToElement(html: string) {
     const template = document.createElement("template");
@@ -36,6 +36,11 @@ appDiv.innerHTML = `
 <p>Tout ce beau nous coute ${total_cost} € par an (primes comprises)</p>
 `.trim();
 
+function formatHolidayVouchers(vouchersMap: HolidayVouchers): string {
+    return Array.from(vouchersMap.entries())
+        .map((items) => `${items[1]}×${items[0]}`)
+        .join("+");
+}
 
 function renderTable(employees: Employee[], targetTableBody: HTMLElement) {
     for (let employee of employees) {
@@ -51,6 +56,7 @@ function renderTable(employees: Employee[], targetTableBody: HTMLElement) {
             employee.annualGrossSalary,
             employee.computeAnnualBonus().toFixed(2),
             employee.canGetHolidayVouchers() ? "Yes" : "No",
+            formatHolidayVouchers(employee.computeChristmasVouchers(new Date().getFullYear())),
         ]));
     }
 }
@@ -75,4 +81,3 @@ renderTable(
     sortedEmployees,
     document.querySelector("#employees_table_body2")!,
 );
-
