@@ -98,7 +98,7 @@ export const EMPLOYEES: Array<Employee> = [
     new Employee(
         "Claire",
         "Leroy",
-        "2023-03-10",
+        "2025-03-10",
         "UX Designer",
         42.0,
         "Design",
@@ -138,7 +138,7 @@ export const EMPLOYEES: Array<Employee> = [
     new Employee(
         "Grace",
         "Leroy",
-        "2022-07-25",
+        "2025-07-25",
         "Marketing Specialist",
         40.0,
         "Marketing",
