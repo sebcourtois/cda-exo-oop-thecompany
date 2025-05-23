@@ -1,5 +1,5 @@
 import "./style.css";
-import {EMPLOYEES} from "./db.ts";
+import {EMPLOYEES} from "./sample-data.ts";
 import type {Employee, HolidayVouchers} from "./employee.ts";
 
 function htmlToElement(html: string) {
