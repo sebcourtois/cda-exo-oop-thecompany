@@ -1,6 +1,6 @@
 import "./style.css";
 import {EMPLOYEES} from "./sample-data.ts";
-import type {Employee, HolidayVouchers} from "./employee.ts";
+import type {Employee, ChristmasVouchers} from "./employee.ts";
 
 function htmlToElement(html: string) {
     const template = document.createElement("template");
@@ -36,10 +36,27 @@ appDiv.innerHTML = `
 <p>Tout ce beau nous coute ${total_cost} € par an (primes comprises)</p>
 `.trim();
 
-function formatHolidayVouchers(vouchersMap: HolidayVouchers): string {
+function formatChristmasVouchers(vouchersMap: ChristmasVouchers): string {
     return Array.from(vouchersMap.entries())
         .map((items) => `${items[1]}×${items[0]}`)
         .join("+");
+}
+
+function formatEmployeeFields(employee: Employee): Map<string, string> {
+    return new Map([
+        ["agency", employee.agency.name],
+        ["meal_policy", employee.agency.mealPolicy.name],
+        ["department", employee.department],
+        ["last_name", employee.lastName.toUpperCase()],
+        ["first name", employee.firstName],
+        ["job_title", employee.jobTitle],
+        ["hired", employee.dateHired.toISOString().split("T", 2)[0]],
+        ["seniority", employee.seniority().toString()],
+        ["salary", employee.annualGrossSalary.toFixed(1)],
+        ["bonus", employee.computeAnnualBonus().toFixed(2)],
+        ["holiday_vouchers", employee.canGetHolidayVouchers() ? "Yes" : "No"],
+        ["christmas_vouchers", formatChristmasVouchers(employee.computeChristmasVouchers(new Date().getFullYear()))],
+    ]);
 }
 
 function renderTable(employees: Employee[], targetTableBody: HTMLElement) {
@@ -56,7 +73,7 @@ function renderTable(employees: Employee[], targetTableBody: HTMLElement) {
             employee.annualGrossSalary,
             employee.computeAnnualBonus().toFixed(2),
             employee.canGetHolidayVouchers() ? "Yes" : "No",
-            formatHolidayVouchers(employee.computeChristmasVouchers(new Date().getFullYear())),
+            formatChristmasVouchers(employee.computeChristmasVouchers(new Date().getFullYear())),
         ]));
     }
 }

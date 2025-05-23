@@ -1,6 +1,6 @@
 import type {Agency} from "./agency.ts";
 
-export type HolidayVouchers = Map<number, number>
+export type ChristmasVouchers = Map<number, number>
 
 export class Employee {
     firstName: string;
@@ -49,7 +49,7 @@ export class Employee {
         return this.seniority() >= 1;
     }
 
-    computeChristmasVouchers(currentYear: number): HolidayVouchers {
+    computeChristmasVouchers(currentYear: number): ChristmasVouchers {
         const voucherValueForAge =
             (age: number): number => {
                 let value = 0;
@@ -63,7 +63,7 @@ export class Employee {
                 return value;
             };
 
-        const vouchers: HolidayVouchers = new Map();
+        const vouchers: ChristmasVouchers = new Map();
 
         for (let birthYear of this.childrenBirthYear) {
             const age = currentYear - birthYear;
