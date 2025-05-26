@@ -11,6 +11,7 @@
     /*align-items: center;*/
 }
 
-td {
+td, th {
+    text-align: left;
     padding-right: 10px;
 }
